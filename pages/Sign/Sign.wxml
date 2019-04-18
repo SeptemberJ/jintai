@@ -1,0 +1,17 @@
+<!--pages/Sign/Sign.wxml-->
+<view class='Sign'>
+  <view class='Logo'>LOGO</view>
+  <view class='InputBlock'>
+    <view class='SignItem'>
+      <text>姓名</text>
+      <input placeholder="请输入姓名" value='{{name}}' bindinput='ChangeName'/>
+    </view>
+    <view class='SignItem'>
+      <text>手机号</text>
+      <input placeholder="请输入手机号" value='{{phone}}' bindinput='ChangePhone'/>
+    </view>
+  </view>
+  <view class='SureBt'>
+    <image src='../../images/arrowright.png' bindtap='GoSign'></image>
+  </view>
+</view>

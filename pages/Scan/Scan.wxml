@@ -1,0 +1,7 @@
+<!--pages/Scan/Scan.wxml-->
+<view class='ScanCode'>
+  <image src='../../images/scan.png' bindtap='Scan'></image>
+  <text wx:if="{{!realCode}}">点击上方图标进行扫码</text>
+  <text wx:else>订单号：{{realCode}}</text>
+  <view class='SureBt' bindtap='SbumitOrder'>提交</view>
+</view>

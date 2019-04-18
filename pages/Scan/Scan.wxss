@@ -1,0 +1,30 @@
+/* pages/Scan/Scan.wxss */
+.ScanCode{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.ScanCode image{
+  width: 100px;
+  height: 100px;
+  margin: 40px auto;
+}
+.ScanCode text{
+  color: #999;
+}
+.SureBt{
+  width: 50%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  background: #DE1D41;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 50px;
+}

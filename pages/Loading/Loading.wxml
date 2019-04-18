@@ -1,0 +1,2 @@
+<!--pages/Loading/Loading.wxml-->
+<button open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">授权</button>

@@ -1,0 +1,20 @@
+<!--pages/Login/Login.wxml-->
+<view class='Login'>
+  <view class='LoginTop'>
+    <text class='Logo'>LOGO</text>
+    <text class='Slogan'>Slogan Slogan Slogan</text>
+  </view>
+  <view class='LoginBot'>
+    <view class='BotInner'>
+      <view class='AccountBox'>
+        <!-- <input style='border-bottom: 1px solid #CECECC;' placeholder="手机号"/> -->
+        <input placeholder="请输入注册的手机号" value="{{phone}}" bindinput='ChangePhone'/>
+        <view class='LoginBtn' bindtap='GoLogin'>登 陆</view>
+      </view>
+      
+      <view class='SignBtn' bindtap='GoSign'>注 册</view>
+    </view>
+  </view>
+</view>
+<view class='Mask' wx:if="{{ifShowBt}}"></view>
+<button wx:if="{{ifShowBt}}" class='AuthorBt' open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">授权</button>

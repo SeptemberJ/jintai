@@ -1,0 +1,104 @@
+/* pages/Login/Login.wxss */
+.Mask{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  background: #000;
+  overflow: hidden;
+  opacity: .7;
+}
+.AuthorBt{
+  width: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  /* background:#fffef9; */
+}
+.Login{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.LoginTop{
+  width: 100%;
+  height: 40%;
+  background: #F6B8AD;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.Logo{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #E85569;
+  font-size: 3rem;
+}
+.Slogan{
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+}
+.LoginBot{
+  width: 100%;
+  height: 60%;
+  background: #FDF4E0;
+  position: relative;
+}
+.BotInner{
+  width: 80%;
+  height: 100%;
+  position: absolute;
+  top: -60px;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.AccountBox{
+  width: calc(100% - 40px);
+  height: 120px;
+  background: #fff;
+  padding: 0 20px;
+}
+.AccountBox input{
+  width: 100%;
+  height: 120px;
+ text-align: center;
+ font-size: 22px;
+ color: #999;
+}
+.LoginBtn{
+  width: calc(100% + 40px);
+  height: 50px;
+  margin-left: -20px;
+  margin-top: 30px;
+  text-align: center;
+  line-height: 50px;
+  background: #DE1D41;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.SignBtn{
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  color: #f0dc70;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid #f0dc70;
+}
