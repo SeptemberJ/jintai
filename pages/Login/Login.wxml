@@ -9,7 +9,7 @@
       <view class='AccountBox'>
         <!-- <input style='border-bottom: 1px solid #CECECC;' placeholder="手机号"/> -->
         <input placeholder="请输入注册的手机号" value="{{phone}}" bindinput='ChangePhone'/>
-        <view class='LoginBtn' bindtap='GoLogin'>登 陆</view>
+        <view class='LoginBtn' bindtap='Login'>登 陆</view>
       </view>
       
       <view class='SignBtn' bindtap='GoSign'>注 册</view>

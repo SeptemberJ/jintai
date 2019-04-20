@@ -4,7 +4,7 @@ var requestPromisified = util.wxPromisify(wx.request)
 var app = getApp()
 Page({
   data: {
-    realCode: ''
+    realCode: '111'
   },
   onLoad: function (options) {
 
@@ -14,7 +14,10 @@ Page({
   Scan () {
     wx.scanCode({
       success(res) {
-        console.log(res.result.split(',')[0])
+        // console.log(res.result.split(',')[0])
+        this.setData({
+          realCode: res.result.split(',')[0]
+        })
       }
     })
   },
@@ -27,17 +30,40 @@ Page({
       })
       return false
     }
+    wx.showModal({
+      title: '提示',
+      content: '确定提交?',
+      success: (res) => {
+        if (res.confirm) {
+          console.log(this)
+          this.SureSubmit()
+        }
+      }
+    })
+  },
+  SureSubmit () {
     requestPromisified({
-      url: app.globalData.url + 'updateorder',
-      data: {
-        mobile: app.globalData.mobile,
-        fname: app.globalData.userName,
-        fbillno: this.data.realCode
-      },
+      url: app.globalData.url + 'updateorder?mobile=' + app.globalData.phone + '&fname=' + app.globalData.userName + '&fbillno=' + this.data.realCode,
       method: 'POST',
+      data: {},
     }).then((res) => {
       console.log('updateorder--------------')
-      console.log(res.data)
+      if (res.data.code == 1) {
+        wx.showToast({
+          title: '提交成功!',
+          icon: 'success',
+          duration: 1500
+        })
+        this.setData({
+          realCode: ''
+        })
+      } else {
+        wx.showToast({
+          image: '../../images/attention.png',
+          title: '提交失败！',
+          duration: 1500
+        })
+      }
     }).catch((res) => {
       wx.hideLoading()
       console.log(res)

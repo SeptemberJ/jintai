@@ -15,8 +15,16 @@ Page({
     })
   },
   Logout () {
-    wx.redirectTo({
-      url: '../Login/Login',
+    wx.showModal({
+      title: '提示',
+      content: '确定退出?',
+      success(res) {
+        if (res.confirm) {
+          wx.redirectTo({
+            url: '../Login/Login',
+          })
+        }
+      }
     })
   }
 })
