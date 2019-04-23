@@ -26,5 +26,10 @@ Page({
         }
       }
     })
+  },
+  ToModifyPsd () {
+    wx.navigateTo({
+      url: '../Modify/Modify',
+    })
   }
 })

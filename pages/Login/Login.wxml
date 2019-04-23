@@ -7,8 +7,8 @@
   <view class='LoginBot'>
     <view class='BotInner'>
       <view class='AccountBox'>
-        <!-- <input style='border-bottom: 1px solid #CECECC;' placeholder="手机号"/> -->
-        <input placeholder="请输入注册的手机号" value="{{phone}}" bindinput='ChangePhone'/>
+        <input style='border-bottom: 1px solid #CECECC;' placeholder="请输入注册的手机号" value="{{phone}}" bindinput='ChangePhone'/>
+        <input placeholder="请输入密码" value="{{psd}}" bindinput='ChangePsd'/>
         <view class='LoginBtn' bindtap='Login'>登 陆</view>
       </view>
       

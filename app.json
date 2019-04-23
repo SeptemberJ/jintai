@@ -3,7 +3,8 @@
     "pages/Login/Login",
     "pages/My/My",
     "pages/Scan/Scan",
-    "pages/Sign/Sign"
+    "pages/Sign/Sign",
+    "pages/Modify/Modify"
   ],
   "window":{
     "backgroundTextStyle":"light",

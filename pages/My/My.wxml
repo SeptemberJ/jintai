@@ -1,6 +1,10 @@
 <!--pages/My/My.wxml-->
 <view class='My'>
   <image class="Avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-  <text>当前账号：{{phone}}</text>
+  <text>{{phone}}</text>
+  <view class='ModifyPsd' bindtap='ToModifyPsd'>
+    <text>修改密码</text>
+    <image src='../../images/modify.png'></image>
+  </view>
   <view class='LogoutBtn' bindtap='Logout'>退 出</view>
 </view>

@@ -4,7 +4,8 @@ var requestPromisified = util.wxPromisify(wx.request)
 var app = getApp()
 Page({
   data: {
-    phone: '18234567890',
+    phone: '18234567891',
+    psd: '222',
     ifShowBt: false
   },
   onLoad: function (options) {
@@ -81,12 +82,17 @@ Page({
       phone: e.detail.value
     })
   },
+  ChangePsd(e) {
+    this.setData({
+      psd: e.detail.value
+    })
+  },
   Login () {
     wx.showLoading({
       title: ' 登陆中',
     })
     requestPromisified({
-      url: app.globalData.url + '/userLogin?mobile=' + this.data.phone,
+      url: app.globalData.url + '/userLogin?mobile=' + this.data.phone + '&fpassword=' + this.data.psd,
       method: 'POST',
       data: {},
     }).then((res) => {

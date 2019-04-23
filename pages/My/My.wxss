@@ -26,3 +26,15 @@
   border-radius: 5px;
   margin-top: 50px;
 }
+.ModifyPsd{
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ModifyPsd image{
+  width: 45px;
+  height: 45px;
+  margin-left: 10px;
+}

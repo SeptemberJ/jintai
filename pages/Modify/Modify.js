@@ -1,27 +1,25 @@
-// pages/Sign/Sign.js
+// pages/Modify/Modify.js
 var util = require('../../utils/util.js')
 var requestPromisified = util.wxPromisify(wx.request)
 var app = getApp()
 Page({
   data: {
-    name: 'liubai', // liubai
-    phone: '18234567891', // 18234567890
-    psd: '',
-    psdAgain: ''
+    phone: '',
+    psdOld: '111',
+    psd: '222',
+    psdAgain: '222'
   },
   onLoad: function (options) {
 
   },
   onShow: function () {
-  },
-  ChangeName(e) {
     this.setData({
-      name: e.detail.value
+      phone: app.globalData.phone
     })
   },
-  ChangePhone(e) {
+  ChangePsdOld(e) {
     this.setData({
-      phone: e.detail.value
+      psdOld: e.detail.value
     })
   },
   ChangePsd(e) {
@@ -34,20 +32,12 @@ Page({
       psdAgain: e.detail.value
     })
   },
-  GoSign () {
+  Modify() {
     // 输入验证
-    if (!this.data.name) {
+    if (!this.data.psdOld) {
       wx.showToast({
         image: '../../images/attention.png',
-        title: '请输入姓名！',
-        duration: 2000
-      })
-      return false
-    }
-    if (!(/^1[34578]\d{9}$/.test(this.data.phone))) {
-      wx.showToast({
-        image: '../../images/attention.png',
-        title: '手机号不正确！',
+        title: '请输入旧密码！',
         duration: 2000
       })
       return false
@@ -60,32 +50,33 @@ Page({
       })
       return false
     }
-    var info = {
-      nickname: app.globalData.userInfo.nickName,
-      head_img: app.globalData.userInfo.avatarUrl,
-      open_id: app.globalData.openid,
-      fname: this.data.name,
-      mobile: this.data.phone,
-      fpassword: this.data.psd
-    }
-    console.log(info)
     wx.showLoading({
       title: '提交中',
     })
     requestPromisified({
-      url: app.globalData.url + '/userInsert?nickname=' + app.globalData.userInfo.nickName + '&head_img=' + app.globalData.userInfo.avatarUrl + '&open_id=' + app.globalData.openid + '&fname=' + this.data.name + '&mobile=' + this.data.phone + '&fpassword=' + this.data.psd,
+      url: app.globalData.url + '/backFpassword?&mobile=' + this.data.phone + '&fpasswordOld=' + this.data.psdOld + '&fpasswordNew=' + this.data.psd,
       data: {},
-      method: 'GET',
+      method: 'POST',
     }).then((res) => {
       if (res.data.code == 1) {
         wx.showToast({
-          title: '注册成功!',
+          title: '修改成功!',
           icon: 'success',
           duration: 1000
         })
         setTimeout(() => {
-          wx.navigateBack()
+          wx.redirectTo({
+            url: '../Login/Login',
+          })
         }, 1000)
+      } else {
+        wx.hideLoading()
+        console.log(res)
+        wx.showToast({
+          image: '../../images/attention.png',
+          title: '修改失败！',
+          duration: 2000
+        })
       }
     }).catch((res) => {
       wx.hideLoading()

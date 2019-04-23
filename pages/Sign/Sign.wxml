@@ -10,6 +10,14 @@
       <text>手机号</text>
       <input placeholder="请输入手机号" value='{{phone}}' bindinput='ChangePhone'/>
     </view>
+    <view class='SignItem'>
+      <text>密码</text>
+      <input placeholder="请输入密码" value='{{psd}}' bindinput='ChangePsd'/>
+    </view>
+    <view class='SignItem'>
+      <text>确认密码</text>
+      <input placeholder="请再次输入密码" value='{{psdAgain}}' bindinput='ChangePsdAgain'/>
+    </view>
   </view>
   <view class='SureBt'>
     <image src='../../images/arrowright.png' bindtap='GoSign'></image>

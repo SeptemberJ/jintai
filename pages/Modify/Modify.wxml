@@ -1,0 +1,26 @@
+<!--pages/Modify/Modify.wxml-->
+<view class='Sign'>
+  <view class='Logo'>LOGO</view>
+  <view class='InputBlock'>
+    <view class='SignItem'>
+      <text>手机号</text>
+      <input placeholder="请输入手机号" value='{{phone}}' disabled/>
+    </view>
+    <view class='SignItem'>
+      <text>旧密码</text>
+      <input placeholder="请输入旧密码" value='{{psdOld}}' bindinput='ChangePsdOld'/>
+    </view>
+    <view class='SignItem'>
+      <text>新密码</text>
+      <input placeholder="请输入新密码" value='{{psd}}' bindinput='ChangePsd'/>
+    </view>
+    <view class='SignItem'>
+      <text>确认密码</text>
+      <input placeholder="请再次输入密码" value='{{psdAgain}}' bindinput='ChangePsdAgain'/>
+    </view>
+  </view>
+  <view class='SureBt'>
+    <image src='../../images/arrowright.png' bindtap='Modify'></image>
+  </view>
+</view>
+
