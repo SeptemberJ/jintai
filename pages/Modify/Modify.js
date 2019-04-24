@@ -5,9 +5,9 @@ var app = getApp()
 Page({
   data: {
     phone: '',
-    psdOld: '111',
-    psd: '222',
-    psdAgain: '222'
+    psdOld: '',
+    psd: '',
+    psdAgain: ''
   },
   onLoad: function (options) {
 

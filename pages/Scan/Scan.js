@@ -4,7 +4,7 @@ var requestPromisified = util.wxPromisify(wx.request)
 var app = getApp()
 Page({
   data: {
-    realCode: '111'
+    realCode: ''
   },
   onLoad: function (options) {
 
@@ -13,8 +13,8 @@ Page({
   },
   Scan () {
     wx.scanCode({
-      success(res) {
-        // console.log(res.result.split(',')[0])
+      success: (res) => {
+        console.log(res.result)
         this.setData({
           realCode: res.result.split(',')[0]
         })
@@ -43,7 +43,7 @@ Page({
   },
   SureSubmit () {
     requestPromisified({
-      url: app.globalData.url + 'updateorder?mobile=' + app.globalData.phone + '&fname=' + app.globalData.userName + '&fbillno=' + this.data.realCode,
+      url: app.globalData.url + 'updateorder?mobile=' + app.globalData.phone + '&fname=' + app.globalData.userName + '&fbillno=' + this.data.realCode + '&usertype=' + app.globalData.usertype,
       method: 'POST',
       data: {},
     }).then((res) => {
@@ -56,6 +56,12 @@ Page({
         })
         this.setData({
           realCode: ''
+        })
+      } else if (res.data.code == 2) {
+        wx.showToast({
+          image: '../../images/attention.png',
+          title: '已提交过！',
+          duration: 1500
         })
       } else {
         wx.showToast({

@@ -4,8 +4,8 @@ var requestPromisified = util.wxPromisify(wx.request)
 var app = getApp()
 Page({
   data: {
-    phone: '18234567891',
-    psd: '222',
+    phone: '', // 18234567891
+    psd: '', // 222
     ifShowBt: false
   },
   onLoad: function (options) {
@@ -100,6 +100,7 @@ Page({
       if (res.data.code == 1) {
         app.globalData.phone = this.data.phone
         app.globalData.userName = res.data.memberInfo.fname
+        app.globalData.usertype = res.data.memberInfo.usertype
         wx.switchTab({
           url: '../Scan/Scan'
         })

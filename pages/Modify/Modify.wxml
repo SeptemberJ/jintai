@@ -8,15 +8,15 @@
     </view>
     <view class='SignItem'>
       <text>旧密码</text>
-      <input placeholder="请输入旧密码" value='{{psdOld}}' bindinput='ChangePsdOld'/>
+      <input type="password" placeholder="请输入旧密码" value='{{psdOld}}' bindinput='ChangePsdOld'/>
     </view>
     <view class='SignItem'>
       <text>新密码</text>
-      <input placeholder="请输入新密码" value='{{psd}}' bindinput='ChangePsd'/>
+      <input type="password" placeholder="请输入新密码" value='{{psd}}' bindinput='ChangePsd'/>
     </view>
     <view class='SignItem'>
       <text>确认密码</text>
-      <input placeholder="请再次输入密码" value='{{psdAgain}}' bindinput='ChangePsdAgain'/>
+      <input type="password" placeholder="请再次输入密码" value='{{psdAgain}}' bindinput='ChangePsdAgain'/>
     </view>
   </view>
   <view class='SureBt'>

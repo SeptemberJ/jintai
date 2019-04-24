@@ -4,10 +4,15 @@ var requestPromisified = util.wxPromisify(wx.request)
 var app = getApp()
 Page({
   data: {
-    name: 'liubai', // liubai
-    phone: '18234567891', // 18234567890
+    name: '', // liubai
+    phone: '', // 18234567891
     psd: '',
-    psdAgain: ''
+    psdAgain: '',
+    role: '0',
+    items: [
+      { name: '2', value: '司机', checked: 'true'},
+      { name: '1', value: '用户'}
+    ]
   },
   onLoad: function (options) {
 
@@ -32,6 +37,11 @@ Page({
   ChangePsdAgain(e) {
     this.setData({
       psdAgain: e.detail.value
+    })
+  },
+  radioChange (e) {
+    this.setData({
+      role: e.detail.value
     })
   },
   GoSign () {
@@ -66,14 +76,15 @@ Page({
       open_id: app.globalData.openid,
       fname: this.data.name,
       mobile: this.data.phone,
-      fpassword: this.data.psd
+      fpassword: this.data.psd,
+      role: this.data.role
     }
     console.log(info)
     wx.showLoading({
       title: '提交中',
     })
     requestPromisified({
-      url: app.globalData.url + '/userInsert?nickname=' + app.globalData.userInfo.nickName + '&head_img=' + app.globalData.userInfo.avatarUrl + '&open_id=' + app.globalData.openid + '&fname=' + this.data.name + '&mobile=' + this.data.phone + '&fpassword=' + this.data.psd,
+      url: app.globalData.url + '/userInsert?nickname=' + app.globalData.userInfo.nickName + '&head_img=' + app.globalData.userInfo.avatarUrl + '&open_id=' + app.globalData.openid + '&fname=' + this.data.name + '&mobile=' + this.data.phone + '&fpassword=' + this.data.psd + '&usertype=' + this.data.role,
       data: {},
       method: 'GET',
     }).then((res) => {
@@ -86,6 +97,20 @@ Page({
         setTimeout(() => {
           wx.navigateBack()
         }, 1000)
+      } else if (res.data.code == 2) {
+        wx.hideLoading()
+        wx.showToast({
+          image: '../../images/attention.png',
+          title: '用户已存在!！',
+          duration: 2000
+        })
+      } else {
+        wx.hideLoading()
+        wx.showToast({
+          image: '../../images/attention.png',
+          title: '注册失败！',
+          duration: 2000
+        })
       }
     }).catch((res) => {
       wx.hideLoading()

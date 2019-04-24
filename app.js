@@ -7,6 +7,7 @@ App({
     url: 'http://118.190.147.102:8080/saomaJK/',
     openid: null,
     userName: '',
-    phone: ''
+    phone: '',
+    usertype: ''
   }
 })

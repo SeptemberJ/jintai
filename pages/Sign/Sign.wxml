@@ -12,11 +12,20 @@
     </view>
     <view class='SignItem'>
       <text>密码</text>
-      <input placeholder="请输入密码" value='{{psd}}' bindinput='ChangePsd'/>
+      <input type="password" placeholder="请输入密码" value='{{psd}}' bindinput='ChangePsd'/>
     </view>
     <view class='SignItem'>
       <text>确认密码</text>
-      <input placeholder="请再次输入密码" value='{{psdAgain}}' bindinput='ChangePsdAgain'/>
+      <input type="password" placeholder="请再次输入密码" value='{{psdAgain}}' bindinput='ChangePsdAgain'/>
+    </view>
+    <view class='SignItem'>
+      <text>角色选择</text>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{items}}" wx:key="item.name">
+          <radio value="{{item.name}}" checked="{{item.checked}}" />
+          {{item.value}}
+        </label>
+      </radio-group>
     </view>
   </view>
   <view class='SureBt'>
